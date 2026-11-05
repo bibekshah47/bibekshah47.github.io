@@ -1,0 +1,23 @@
+/* =====================================================================
+   03 · HEADER — name sign, "Now serving" strip, "Service alert" strip.
+   ===================================================================== */
+.sign{background:var(--sign);color:var(--sign-ink)}
+.sign .wrap{padding-block:28px 24px;display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-end;justify-content:space-between}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin:0 0 6px}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(44px,8vw,84px);line-height:.92;margin:0;text-wrap:balance}
+.sub{margin:10px 0 0;font-size:17px;opacity:.9}
+.sign-links{display:flex;flex-wrap:wrap;gap:8px}
+.sign-links a{font:600 15px/1 var(--f-body);color:var(--sign-ink);border:1.5px solid rgba(244,247,250,.35);border-radius:999px;padding:10px 16px;text-decoration:none}
+.sign-links a:hover{border-color:var(--sign-ink)}
+
+.strip{background:var(--here);color:var(--here-ink)}
+.strip .wrap{padding-block:10px;display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center;font-size:15px}
+.strip b,.alert b{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.06em;font-size:15px}
+.strip span{display:inline-flex;align-items:center;gap:7px}
+.strip .bul{width:20px;height:20px;font-size:12px}
+
+.alert{background:var(--sign);color:var(--sign-ink);border-top:1px solid rgba(255,255,255,.08)}
+.alert .wrap{padding-block:9px;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:14px;align-items:center}
+.alert b{color:var(--here);display:inline-flex;align-items:center;gap:8px}
+.alert b::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--here);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}

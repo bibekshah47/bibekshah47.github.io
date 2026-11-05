@@ -1,0 +1,48 @@
+/* =====================================================================
+   04 · MAP — map card, toolbar, and every shape drawn inside the SVG map.
+   ===================================================================== */
+.map-head{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.map-card{background:var(--panel);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px 26px;padding:12px 16px;border-bottom:1px solid var(--rule);background:var(--bg)}
+.ride-status{display:flex;flex-wrap:wrap;align-items:center;gap:10px;min-height:42px;padding:8px 16px;border-bottom:1px solid var(--rule);font-size:15px}
+.ride-status .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ride-status b{font-family:var(--f-display);font-size:19px}
+.ride-status .sp{margin-left:auto;display:flex;gap:6px}
+.map-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+#map{display:block;width:100%;min-width:960px;height:auto}
+.hint{display:none;font-family:var(--f-mono);font-size:12px;color:var(--muted);padding:8px 14px 0;margin:0}
+@media (max-width:960px){.hint{display:block}}
+.key{display:flex;flex-wrap:wrap;gap:8px 22px;padding:12px 16px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.key span{display:inline-flex;align-items:center;gap:8px}
+
+/* --- shapes inside the SVG --- */
+.axis-t{font-family:var(--f-mono);font-size:12px;fill:var(--muted)}
+.axis-l{stroke:var(--rule);stroke-width:1.5}
+.ln{fill:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
+.fut{stroke-dasharray:12 9;stroke-linecap:butt;opacity:.5}
+.s-A{stroke:var(--line-a)}.s-W{stroke:var(--line-w)}.s-R{stroke:var(--line-r)}.s-V{stroke:var(--line-v)}.s-P{stroke:var(--line-p)}
+.f-A{fill:var(--line-a)}.f-W{fill:var(--line-w)}.f-R{fill:var(--line-r)}.f-V{fill:var(--line-v)}.f-P{fill:var(--line-p)}
+.stop,.ix{fill:var(--panel);stroke:var(--ink);stroke-width:3.5}
+.stop.future,.ix.future{stroke-dasharray:5 4}
+.st{cursor:pointer;transition:opacity .25s}
+.st .hit{fill:transparent}
+.st:hover .stop,.st:hover .ix,.st:focus-visible .stop,.st:focus-visible .ix{stroke:var(--here);stroke-width:5}
+.st.sel .stop,.st.sel .ix{stroke:var(--here);stroke-width:6}
+.st:focus{outline:none}
+.lbl-n{font-family:var(--f-display);font-weight:700;font-size:15px;fill:var(--ink)}
+.lbl-s{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+.ev-dot{fill:var(--here);stroke:var(--panel);stroke-width:2}
+.bul-t{font-family:var(--f-display);font-weight:700;font-size:16px;fill:#fff}
+.here-l{stroke:var(--here);stroke-width:2.5;stroke-dasharray:4 5}
+.here-b{fill:var(--here)}
+.here-t{font-family:var(--f-display);font-weight:700;font-size:13px;letter-spacing:.06em;fill:var(--here-ink)}
+.train{fill:var(--panel);stroke:var(--ink);stroke-width:1.5}
+#tourTrain{transition:transform 1.1s cubic-bezier(.45,0,.25,1)}
+#tourTrain circle{fill:var(--here);stroke:var(--ink);stroke-width:3}
+
+/* --- line filter and trip planner dimming --- */
+.seg{transition:opacity .25s}
+#map[data-focus="A"] .seg:not(.on-A),#map[data-focus="W"] .seg:not(.on-W),#map[data-focus="R"] .seg:not(.on-R),#map[data-focus="V"] .seg:not(.on-V),#map[data-focus="P"] .seg:not(.on-P){opacity:.12}
+#map.skill-mode .st:not(.match){opacity:.15}
+#map.skill-mode .ln{opacity:.35}
+#map.skill-mode .st.match .stop,#map.skill-mode .st.match .ix{stroke:var(--here);stroke-width:6}

@@ -1,0 +1,28 @@
+/* =====================================================================
+   01 · TOKENS — colors and fonts for the whole site.
+   Change a line color here and it changes everywhere.
+   Light theme first, then dark theme (used when the visitor's device is in dark mode).
+   ===================================================================== */
+:root{
+  /* Page colors */
+  --bg:#F3F5F4; --panel:#FFFFFF; --ink:#141A22; --muted:#5A6573; --rule:#D5DBDF; --ghost:#E9EDEF;
+  --sign:#14202E; --sign-ink:#F4F7FA;
+  /* Line colors: A Academic, W Campus Work, R Research, V Venture, P Projects */
+  --line-a:#0A5DB3; --line-w:#D23A2C; --line-r:#11885A; --line-v:#7B3FAA; --line-p:#C8601A;
+  /* "You are here" gold */
+  --here:#E9A800; --here-ink:#1B1400; --scrim:rgba(10,14,20,.45);
+  /* Fonts */
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0E131A; --panel:#17202B; --ink:#E7ECF2; --muted:#98A3B1; --rule:#2A3543; --ghost:#1E2935;
+    --sign:#070B10; --sign-ink:#F4F7FA;
+    --line-a:#4E9DF0; --line-w:#F2645A; --line-r:#3CC387; --line-v:#B482E6; --line-p:#F2924F;
+    --here:#F5BE2A; --here-ink:#1B1400; --scrim:rgba(0,0,0,.6);
+    color-scheme:dark;
+  }
+}

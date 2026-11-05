@@ -1,0 +1,37 @@
+/* =====================================================================
+   02 · BASE — page defaults, layout wrapper, shared buttons and line bullets.
+   ===================================================================== */
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+body.locked{overflow:hidden}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--here);outline-offset:2px}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{padding-block:28px 56px}
+h2{font-family:var(--f-display);font-weight:700;font-size:30px;line-height:1.1;margin:0;text-wrap:balance}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+
+/* Round line bullets (A, W, R, V, P) */
+.bul{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;font-family:var(--f-display);font-weight:700;font-size:15px;color:#fff;flex:none;font-style:normal}
+.b-A{background:var(--line-a)}.b-W{background:var(--line-w)}.b-R{background:var(--line-r)}.b-V{background:var(--line-v)}.b-P{background:var(--line-p)}
+.bullets{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap}
+
+/* Pill buttons used across the toolbar and search */
+.chiprow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chiprow .lab{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.pill{display:inline-flex;align-items:center;gap:8px;font:600 14px/1 var(--f-body);color:var(--ink);background:var(--panel);border:1.5px solid var(--rule);border-radius:999px;padding:6px 12px;cursor:pointer}
+.pill.has-bul{padding-left:6px}
+.pill:hover{border-color:var(--ink)}
+.pill[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.pill .bul{width:22px;height:22px;font-size:13px}
+
+/* Small pop-up message at the bottom */
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);font-weight:600;padding:10px 16px;border-radius:999px;z-index:60;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

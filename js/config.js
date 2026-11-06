@@ -20,7 +20,7 @@ T.config = {
 
   // AI chat: paste your Cloudflare Worker URL here (see CHATBOT-SETUP.md).
   // Leave it as "" to hide the chat. NEVER put your OpenAI key in this file.
-  chatEndpoint: "",
+  chatEndpoint: "https://bibek-info-desk.shahbibek774.workers.dev",
 
   // Suggested questions shown under the chat
   chatSuggestions: [

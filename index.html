@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="css/05-station-page.css">
 <link rel="stylesheet" href="css/06-info-desk.css">
 <link rel="stylesheet" href="css/07-timetable.css">
+<link rel="stylesheet" href="css/08-ai-chat.css">
 </head>
 <body>
 
@@ -105,13 +106,25 @@
     </div>
   </div>
 
-  <!-- ===================== SECTION: INFORMATION DESK (search) ===================== -->
+  <!-- ===================== SECTION: INFORMATION DESK (search + AI chat) ===================== -->
   <section class="desk" aria-labelledby="desk-h">
-    <div><h3 id="desk-h">Information desk</h3><p>Search every station on the map.</p></div>
+    <div><h3 id="desk-h">Information desk</h3><p>Search every station, or ask the desk a question about Bibek.</p></div>
     <div>
       <label for="q" class="muted small">Search stations</label>
       <input id="q" type="search" placeholder="Try “pitch”, “research”, “website”, “students”" autocomplete="off">
       <div class="results" id="results" aria-live="polite"></div>
+
+      <!-- AI chat (js/features/ai-chat.js). Hidden until T.config.chatEndpoint is set. -->
+      <div class="chat" id="chat" hidden>
+        <div class="chat-head"><span class="chat-dot" aria-hidden="true"></span><b>Ask the desk</b><span class="muted small">AI answers from this site only. It can make mistakes.</span></div>
+        <div class="chat-log" id="chatLog" aria-live="polite"></div>
+        <div class="chat-suggest" id="chatSuggest"></div>
+        <form class="chat-form" id="chatForm">
+          <label for="chatInput" class="sr-only">Your question</label>
+          <input id="chatInput" type="text" maxlength="500" placeholder="Ask about Bibek’s work, research, projects…" autocomplete="off">
+          <button type="submit" id="chatSend">Ask</button>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -226,6 +239,7 @@
 <script src="js/features/ride-the-line.js"></script>
 <script src="js/features/info-desk.js"></script>
 <script src="js/features/contact.js"></script>
+<script src="js/features/ai-chat.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
